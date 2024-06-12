@@ -79,5 +79,5 @@ if __name__ == "__main__":
     dataset_dir = "test_query"
     test_query = [os.path.join(dataset_dir, path_query) for path_query in os.listdir(dataset_dir)]
     image_query = Image.open(test_query[0])
-    processor = ViT_Processor(image_query=test_query[0])
+    processor = ViT_Processor(image_query=image_query)
     processor.run()

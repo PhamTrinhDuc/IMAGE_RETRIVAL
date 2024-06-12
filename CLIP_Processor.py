@@ -49,7 +49,7 @@ class CLIP_Processor:
                 json.dump(self.image_filenames, f)
 
 
-    def Query(self, prompt, top_k=6):
+    def Query(self, prompt, top_k=5):
 
         if isinstance(prompt, str):
             embedding = self.get_text_embedding(prompt)
@@ -72,10 +72,11 @@ class CLIP_Processor:
         helper.plot_results(path_images)
 
 
+
 if __name__ == "__main__":
     dataset_dir = "test_query"
     test_querys = [os.path.join(dataset_dir, path_query) for path_query in os.listdir(dataset_dir)]
-    test_query = Image.open(test_querys[0])
+    test_query = Image.open(test_querys[1])
 
     # Show image query
     plt.imshow(test_query)

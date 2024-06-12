@@ -4,6 +4,7 @@ from helper_function import Helper
 
 helper = Helper()
 
+
 class ViT_Processor:
     def __init__(self, image_query):
         self.dataset_dict, self.image_filenames = helper.dataset_dict, helper.image_filenames

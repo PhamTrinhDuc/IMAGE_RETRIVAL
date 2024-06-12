@@ -32,6 +32,7 @@ class ViT_Processor:
 
     def embedding_image_database(self): # => store embedding of image in faiss
         SAVE_INTERVAL = 100
+        os.makedirs("vector_db", exist_ok=True)
         path_index_json = Path("vector_db/index_ViT.json")
         path_index_bin = Path("vector_db/index_ViT.bin")
 
@@ -48,7 +49,7 @@ class ViT_Processor:
             self.index = faiss.read_index("vector_db/index_ViT.bin")
 
         if not path_index_json.exists():
-            with open("vector_db/.json", "w") as f:
+            with open("vector_db/index.json", "w") as f:
                 json.dump(self.image_filenames, f)
 
 
@@ -64,22 +65,26 @@ class ViT_Processor:
 
 
     def run (self):
+
         # embedding image
         self.embedding_image_database()
+ 
+        # Đo lượng RAM sử dụng trước khi inference
+        ram_before_infer = psutil.virtual_memory().used / (1024 ** 2)  # MB
         # query image
-        path_images = self.Query(self.image_query, top_k=6) # truy van anh
+        path_images = self.Query(self.image_query, top_k=5) # truy van anh
+        # Đo lượng RAM sử dụng sau khi inference
+        ram_after_infer = psutil.virtual_memory().used / (1024 ** 2)  # MB
+
         # plot image after query
         helper.plot_results(path_images)
 
-        # grid_image = helper.create_image_grid(path_images)
-
-        # return grid_image
-
+        print(f"RAM Used by Model ViT to Inference: {ram_after_infer - ram_before_infer:.2f} MB")
 
 if __name__ == "__main__":
     dataset_dir = "test_query"
     test_query = [os.path.join(dataset_dir, path_query) for path_query in os.listdir(dataset_dir)]
-    image_query = Image.open(test_query[0])
+    image_query = Image.open(test_query[4])
 
     # Show image query
     plt.imshow(image_query)

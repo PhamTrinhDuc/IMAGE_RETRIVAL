@@ -76,5 +76,12 @@ if __name__ == "__main__":
     dataset_dir = "test_query"
     test_querys = [os.path.join(dataset_dir, path_query) for path_query in os.listdir(dataset_dir)]
     test_query = Image.open(test_querys[0])
+
+    # Show image query
+    plt.imshow(test_query)
+    plt.axis('off')
+    plt.show()
+
+
     processor = CLIP_Processor(test_query=test_query)
     processor.run()

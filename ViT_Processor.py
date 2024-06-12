@@ -49,7 +49,7 @@ class ViT_Processor:
             self.index = faiss.read_index("vector_db/index_ViT.bin")
 
         if not path_index_json.exists():
-            with open("vector_db/index.json", "w") as f:
+            with open("vector_db/index_ViT.json", "w") as f:
                 json.dump(self.image_filenames, f)
 
 

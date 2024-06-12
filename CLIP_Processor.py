@@ -29,6 +29,8 @@ class CLIP_Processor:
 
     def embedding_image_database(self): # => store embedding of image in faiss
         SAVE_INTERVAL = 100
+
+        os.makedirs("vector_db", exist_ok=True)
         path_index_json = Path("vector_db/index_CLIP.json")
         path_index_bin = Path("vector_db/index_CLIP.bin")
 
@@ -64,14 +66,21 @@ class CLIP_Processor:
 
 
     def run (self):
+
         # embedding image
         self.embedding_image_database()
+ 
+        # Đo lượng RAM sử dụng trước khi inference
+        ram_before_infer = psutil.virtual_memory().used / (1024 ** 2)  # MB
         # query image
-        path_images = self.Query(self.test_query, top_k=6) # truy van anh
+        path_images = self.Query(self.image_query, top_k=5) # truy van anh
+        # Đo lượng RAM sử dụng sau khi inference
+        ram_after_infer = psutil.virtual_memory().used / (1024 ** 2)  # MB
+
         # plot image after query
         helper.plot_results(path_images)
 
-
+        print(f"RAM Used by Model CLIP to Inference: {ram_after_infer - ram_before_infer:.2f} MB")
 
 if __name__ == "__main__":
     dataset_dir = "test_query"
@@ -82,7 +91,6 @@ if __name__ == "__main__":
     plt.imshow(test_query)
     plt.axis('off')
     plt.show()
-
 
     processor = CLIP_Processor(test_query=test_query)
     processor.run()

@@ -84,7 +84,7 @@ class ViT_Processor:
 if __name__ == "__main__":
     dataset_dir = "test_query"
     test_query = [os.path.join(dataset_dir, path_query) for path_query in os.listdir(dataset_dir)]
-    image_query = Image.open(test_query[4])
+    image_query = Image.open(test_query[0])
 
     # Show image query
     plt.imshow(image_query)

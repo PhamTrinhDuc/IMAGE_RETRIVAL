@@ -32,8 +32,8 @@ class ViT_Processor:
 
     def embedding_image_database(self): # => store embedding of image in faiss
         SAVE_INTERVAL = 100
-        path_index_json = Path("index_ViT.json")
-        path_index_bin = Path("index_ViT.bin")
+        path_index_json = Path("vector_db/index_ViT.json")
+        path_index_bin = Path("vector_db/index_ViT.bin")
 
         if not path_index_bin.exists():
             for i, file in tqdm.tqdm(enumerate(self.image_filenames)):
@@ -42,13 +42,13 @@ class ViT_Processor:
                 self.index.add(embedding)
 
                 if i % SAVE_INTERVAL == 0:
-                    faiss.write_index(self.index, "index_ViT.bin")
-                faiss.write_index(self.index, "index_ViT.bin")
+                    faiss.write_index(self.index, "vector_db/index_ViT.bin")
+                faiss.write_index(self.index, "vector_db/index_ViT.bin")
         else:
-            self.index = faiss.read_index("index_ViT.bin")
+            self.index = faiss.read_index("vector_db/index_ViT.bin")
 
         if not path_index_json.exists():
-            with open("index_ViT.json", "w") as f:
+            with open("vector_db/.json", "w") as f:
                 json.dump(self.image_filenames, f)
 
 

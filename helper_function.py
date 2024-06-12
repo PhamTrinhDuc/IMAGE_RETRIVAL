@@ -1,9 +1,5 @@
 
 from lib import *
-from model import get_model
-
-
-
 
 class Helper:
 

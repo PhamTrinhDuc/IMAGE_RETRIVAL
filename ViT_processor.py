@@ -68,16 +68,21 @@ class ViT_Processor:
         # query image
         path_images = self.Query(self.image_query, top_k=6) # truy van anh
         # plot image after query
-        # helper.plot_results(path_images)
+        helper.plot_results(path_images)
 
-        grid_image = helper.create_image_grid(path_images)
+        # grid_image = helper.create_image_grid(path_images)
 
-        return grid_image
+        # return grid_image
 
 
 if __name__ == "__main__":
     dataset_dir = "test_query"
     test_query = [os.path.join(dataset_dir, path_query) for path_query in os.listdir(dataset_dir)]
     image_query = Image.open(test_query[0])
+
+    # Show image query
+    plt.imshow(image_query)
+    plt.axis('off')
+    plt.show()
     processor = ViT_Processor(image_query=image_query)
     processor.run()

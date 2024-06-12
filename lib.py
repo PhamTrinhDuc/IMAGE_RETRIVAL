@@ -6,6 +6,7 @@ from transformers import CLIPModel, CLIPProcessor
 from pathlib import Path
 from PIL import Image
 import gradio as gr
+import psutil
 import tqdm
 import cv2
 import time

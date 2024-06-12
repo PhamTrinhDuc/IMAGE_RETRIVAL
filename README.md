@@ -2,3 +2,6 @@ Run respository:
 
   1. pip install -r requirements.txt
   2. python3 ViT_Processor.py || python3 CLIP_Processor
+  3. If yout want to try other results: at ViT_Processor.py || CLIP_Processor.py change the  indexes in list test_query.
+![Screenshot from 2024-06-12 08-25-55](https://github.com/PhamTrinhDuc/IMAGE_RETRIVAL/assets/127647215/a0a5b0fb-0001-4c58-9aec-c31d20b4c48b)
+

@@ -58,45 +58,12 @@ class Helper:
 
         # display grid image
         plt.tight_layout()
-        plt.show()
 
-    
+        save_path = "results images query"
+        path = Path(save_path)
+        if not path.exists():
+            plt.savefig(save_path, bbox_inches='tight', pad_inches=0.1)
+            print(f"Grid image saved to {save_path}")
 
-    # def create_image_grid(image_paths, grid_size=(3, 3)):
-    #     """
-    #     Tạo một grid ảnh từ danh sách các đường dẫn ảnh.
-
-    #     Parameters:
-    #     - image_paths (list): Danh sách các đường dẫn ảnh.
-    #     - grid_size (tuple): Kích thước grid (số hàng, số cột).
-
-    #     Returns:
-    #     - Image: Ảnh tổng hợp chứa grid ảnh.
-    #     """
-    #     # Số lượng ảnh
-    #     num_images = len(image_paths)
-    #     rows, cols = grid_size
-
-    #     # Mở tất cả các ảnh và lấy kích thước lớn nhất
-    #     images = [Image.open(img_path) for img_path in image_paths]
-    #     max_width = max(img.width for img in images)
-    #     max_height = max(img.height for img in images)
-
-    #     # Tạo ảnh nền trắng cho grid với kích thước lớn nhất
-    #     grid_img = Image.new('RGB', (cols * max_width, rows * max_height), (255, 255, 255))
-
-    #     for idx, img in enumerate(images):
-    #         if idx >= rows * cols:
-    #             break  # Dừng lại nếu đã đạt số lượng ô trong grid
-
-    #         # Tính toán vị trí của ảnh trong grid
-    #         row = idx // cols
-    #         col = idx % cols
-    #         x = col * max_width
-    #         y = row * max_height
-
-    #         # Dán ảnh vào vị trí tương ứng trong grid
-    #         grid_img.paste(img, (x, y))
-
-    #     return grid_img
+        # plt.show()
 

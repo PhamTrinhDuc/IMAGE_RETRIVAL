@@ -80,8 +80,9 @@ class CLIP_Processor:
         # plot image after query
         helper.plot_results(path_images)
 
-        print(f"RAM Used by Model CLIP to Inference: {ram_after_infer - ram_before_infer:.2f} MB")
-
+        # print(f"RAM Used by Model CLIP to Inference: {ram_after_infer - ram_before_infer:.2f} MB")
+        return path_images
+    
 if __name__ == "__main__":
     dataset_dir = "test_query"
     test_querys = [os.path.join(dataset_dir, path_query) for path_query in os.listdir(dataset_dir)]

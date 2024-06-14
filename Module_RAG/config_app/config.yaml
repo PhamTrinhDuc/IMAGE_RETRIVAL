@@ -1,0 +1,31 @@
+
+Groq_API: "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"
+LlamaParse_API: "llx-SGLFHHTAOeVBh0yxVr1BTR7XXgxao4rVJMVmO8KZAYwoDiOc"
+dict_production: {
+    "Ban_Chai_Dien": "Bàn Chải Điện",
+    "Ban_La": "Bàn Là",
+    "Bep_Tu": "Bếp Từ",
+    "Binh_Dun_Nuoc": "Bình Đun Nước",
+    "Binh_Nong_Lanh": "Bình Nóng Lạnh",
+    "Den_Nang_Luong_Mat_Troi": "Đèn Năng Lượng Mặt Trời",
+    "Dieu_Hoa": "Điều Hòa",
+    "Ghe_Message": "Ghế Massage",
+    "Lo_Nuong": "Lò Nướng",
+    "Lo_Vi_Song": "Lò Vi Sóng",
+    "May_Cao_Rau": "Máy Cạo Râu",
+    "May_Danh_Trung": "Máy Đánh Trứng",
+    "May_Ep_Trai_Cay": "Máy Ép Trái Cây",
+    "May_Giat": "Máy Giặt",
+    "May_Hut_Bui": "Máy Hút Bụi",
+    "May_Loc_Khong_Khi": "Máy Lọc Không Khí",
+    "May_Loc_Nuoc": "Máy Lọc Nước",
+    "May_Say_Toc": "Máy Sấy Tóc",
+    "May_Xay": "Máy Xay",
+    "Noi_Ap_Suat": "Nồi Áp Suất",
+    "Noi_Chien_Khong_Dau": "Nồi Chiên Không Dầu",
+    "Noi_Com_Dien": "Nồi Cơm Điện",
+    "Robot_Hut_Bui": "Robot Hút Bụi",
+    "Thiet_Bi_Camera": "Thiết Bị Camera",
+    "Thiet_Bi_Webcam": "Thiết Bị Webcam",
+    "Thiet_Bi_Wifi": "Thiết Bị Wifi"
+}

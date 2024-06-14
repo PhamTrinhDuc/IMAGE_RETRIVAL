@@ -4,8 +4,6 @@ from CLIP_Processor import CLIP_Processor
 from Module_RAG import llm
 
 QA_chain = llm.create_Chain_QA()
-# response = QA_chain.invoke({"query": "Liệt kê giúp tôi 5 lò vi sóng"})
-# print(response['result'])
 
 
 def process_image_user(prompt_user, image):
@@ -14,8 +12,11 @@ def process_image_user(prompt_user, image):
     path_images = process.run()
 
     images_after_query = [Image.open(path_img) for path_img in path_images]
-    name_product = images_after_query[0].split("/")[1]
-    response = QA_chain.invoke({"query": prompt_user})
+    name_product = path_images[0].split("/")[1]
+
+    rewrite_prompt = prompt_user + f" .Một số sản phẩm {name_product} của bên tôi."
+
+    response = QA_chain.invoke({"query": rewrite_prompt})
 
     return response['result'], \
         images_after_query[0], images_after_query[1], images_after_query[2], images_after_query[3], images_after_query[4]

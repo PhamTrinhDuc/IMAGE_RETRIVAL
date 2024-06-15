@@ -1,4 +1,4 @@
-Run respository:
+Run repository:
 
   1. git clone https://github.com/PhamTrinhDuc/IMAGE_RETRIVAL
   2. pip install -r requirements.txt

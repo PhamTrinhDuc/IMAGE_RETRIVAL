@@ -49,7 +49,7 @@ def set_custom_prompt():
 # Instantiate the Retrieval Question Answering Chain
 def create_Chain_QA():
     llm = ChatGroq(
-        model='Llama3-70b-8192',
+        model='Mixtral-8x7b-32768',
         api_key=config_app["Groq_API"])
     prompt = set_custom_prompt()
     retriever = create_retriever()

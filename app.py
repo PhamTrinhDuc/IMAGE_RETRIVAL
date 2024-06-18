@@ -76,6 +76,3 @@ iface = gr.Interface(
 )
 # Chạy ứng dụng
 iface.launch(share=True)
-
-# image = Image.open("test_query/16241119184849112013705289813434_jpg.rf.5b94d217725c856ae3ecd23f54f6446f.jpg")
-# print(process_image_user(image))

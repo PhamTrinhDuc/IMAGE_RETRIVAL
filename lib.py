@@ -12,4 +12,5 @@ import cv2
 import time
 import faiss
 import json
+import shutil
 import os
